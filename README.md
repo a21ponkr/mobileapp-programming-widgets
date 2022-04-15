@@ -1,42 +1,77 @@
 
 # Rapport
 
-**Skriv din rapport här!**
 
-_Du kan ta bort all text som finns sedan tidigare_.
 
-## Följande grundsyn gäller dugga-svar:
+In this assignment we were able to decide whether we wanted to create a layout using ConstraintLayout or LinearLayout and I went with ContraintLayout. 
+In activity_main.xml I have an ImageView, a EditText and a ButtonView.
 
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
+Our ConstraintLayout contains of:
+```
+        android:layout_width="409dp"
+        android:layout_height="354dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="188dp"
+        tools:ignore="MissingConstraints">
+```
+Here we have decided out height and width as well as added ignore missingconstraints just for this.
 
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+And here is our ImageView,  tools:srcCompat="@tools:sample/avatars is a sample icon that came with the software.
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="ImageContrastCheck"
+            tools:layout_editor_absoluteX="140dp"
+            tools:layout_editor_absoluteY="51dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/icon" />
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
+Here is my button: android:text="@string/button" can be found in values > strings.xml
+```
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="270dp" />
+```
 
-![](android.png)
+Resources in strings.xml so that it isn't hardcoded.
+```
+<resources>
 
-Läs gärna:
+    <string name="app_name">Widgets</string>
+    <string name="name">Name</string>
+    <string name="button">Button</string>
+    <string name="icon">ICON</string>
+</resources>
+```
 
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+Last one is EditText
+
+```
+<EditText
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="Name"
+            android:minHeight="48dp"
+            android:text="@string/name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="200dp" />
+```
+
+However, as you can see from below this code doesn't seem to work, at least not on my PC and I'm not sure how to fix it.
+
+```
+Execution failed for task ':app:processDebugResources'.
+> A failure occurred while executing com.android.build.gradle.internal.tasks.Workers$ActionFacade
+```     
+
+![](idkwhythishappens.png)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,20 +32,17 @@
             tools:layout_editor_absoluteX="162dp"
             tools:layout_editor_absoluteY="270dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:layout_width="207dp"
             android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="EditName"
+            android:minHeight="48dp"
+            android:text="@string/name"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="200dp">
+            tools:layout_editor_absoluteY="200dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
